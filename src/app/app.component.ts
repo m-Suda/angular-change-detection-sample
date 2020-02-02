@@ -36,6 +36,9 @@ export class AppComponent {
     public addStoreNewArray() {
         // StoreListComponentが`changeDetection: ChangeDetectionStrategy.OnPush`でも
         // 要素の追加が行われる。何故なら配列(オブジェクト)の参照が変わっているから。
+        // StoreList, FruitsList両方にChangeDetectionStrategy.OnPushが設定されている場合、
+        // StoreListComponent以下のみにChangeDetectionが伝播する。
+        // FruitsListComponent以下にChangeDetectionは走らない。
         const currentStoreList = [...this.storeList];
         this.storeList = [...currentStoreList, { name: '飯田橋店', isFavorite: false }];
     }

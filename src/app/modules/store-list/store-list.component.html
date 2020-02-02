@@ -1,0 +1,9 @@
+<p>Store List</p>
+
+<ng-container *ngFor="let store of storeList">
+    <ul>
+        <li>
+            <app-store-list-item [store]="store"></app-store-list-item>
+        </li>
+    </ul>
+</ng-container>

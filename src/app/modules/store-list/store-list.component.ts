@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, Input } from '@angular/core';
 
 export interface Store {
     name: string;
@@ -12,8 +12,12 @@ export interface Store {
     changeDetection: ChangeDetectionStrategy.OnPush,
     // changeDetection: ChangeDetectionStrategy.Default,
 })
-export class StoreListComponent {
+export class StoreListComponent implements DoCheck {
     @Input() storeList: Store[];
 
     constructor() {}
+
+    ngDoCheck(): void {
+        console.log('StoreListComponent');
+    }
 }

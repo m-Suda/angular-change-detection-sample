@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from './modules/store-list/store-list.component';
 import { Fruits } from './modules/fruits-list/fruits-list.component';
 
@@ -6,6 +6,8 @@ import { Fruits } from './modules/fruits-list/fruits-list.component';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.Default,
 })
 export class AppComponent {
     public storeList: Store[] = [
@@ -21,10 +23,16 @@ export class AppComponent {
         { name: 'メロン' },
     ];
 
+    public userName = 'John';
+
     public title = 'angular-change-detect';
 
     public changeTitle() {
         this.title = 'Title updated';
+    }
+
+    public changeUserName() {
+        this.userName = 'Lucy';
     }
 
     public addStore() {

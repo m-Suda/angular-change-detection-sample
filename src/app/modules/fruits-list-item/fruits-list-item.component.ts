@@ -5,8 +5,8 @@ import { Fruits } from '../fruits-list/fruits-list.component';
     selector: 'app-fruits-list-item',
     templateUrl: './fruits-list-item.component.html',
     styleUrls: ['./fruits-list-item.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    // changeDetection: ChangeDetectionStrategy.Default,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.Default,
 })
 export class FruitsListItemComponent implements DoCheck {
     @Input() fruits: Fruits;

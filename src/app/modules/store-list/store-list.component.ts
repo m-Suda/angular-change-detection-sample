@@ -9,8 +9,8 @@ export interface Store {
     selector: 'app-store-list',
     templateUrl: './store-list.component.html',
     styleUrls: ['./store-list.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    // changeDetection: ChangeDetectionStrategy.Default,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.Default,
 })
 export class StoreListComponent implements DoCheck {
     @Input() storeList: Store[];

@@ -1,9 +1,6 @@
 <p>Fruits List</p>
-
-<ng-container *ngFor="let fruits of fruitsList">
-    <ul>
-        <li>
-            <app-fruits-list-item [fruits]="fruits"></app-fruits-list-item>
-        </li>
-    </ul>
-</ng-container>
+<ul>
+    <li *ngFor="let fruits of fruitsList">
+        <app-fruits-list-item [fruits]="fruits"></app-fruits-list-item>
+    </li>
+</ul>

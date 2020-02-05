@@ -1,10 +1,8 @@
 <p>Store List</p>
 <button (click)="consoleLog()">Add Store List In StoreListComponent</button>
 
-<ng-container *ngFor="let store of storeList">
-    <ul>
-        <li>
-            <app-store-list-item [store]="store"></app-store-list-item>
-        </li>
-    </ul>
-</ng-container>
+<ul>
+    <li *ngFor="let store of storeList">
+        <app-store-list-item [store]="store"></app-store-list-item>
+    </li>
+</ul>

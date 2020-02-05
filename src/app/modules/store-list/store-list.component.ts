@@ -20,4 +20,9 @@ export class StoreListComponent implements DoCheck {
     ngDoCheck(): void {
         console.log('StoreListComponent-DoCheck');
     }
+
+    public consoleLog() {
+        console.log('StoreListからconsoleLog()');
+        console.log('Event in StoreListComponent');
+    }
 }

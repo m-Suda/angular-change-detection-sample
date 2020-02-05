@@ -14,6 +14,6 @@ export class StoreListItemComponent implements DoCheck {
     constructor() {}
 
     ngDoCheck(): void {
-        console.log('StoreListItem-DoCheck');
+        console.log('StoreListItemComponent-DoCheck');
     }
 }

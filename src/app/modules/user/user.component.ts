@@ -18,6 +18,6 @@ export class UserComponent implements OnChanges, DoCheck {
     }
 
     ngDoCheck(): void {
-        console.log('User-DoCheck');
+        console.log('UserComponent-DoCheck');
     }
 }

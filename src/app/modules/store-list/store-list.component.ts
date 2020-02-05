@@ -18,6 +18,6 @@ export class StoreListComponent implements DoCheck {
     constructor() {}
 
     ngDoCheck(): void {
-        console.log('StoreListComponent');
+        console.log('StoreListComponent-DoCheck');
     }
 }

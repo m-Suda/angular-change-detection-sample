@@ -17,6 +17,6 @@ export class FruitsListComponent implements DoCheck {
     constructor() {}
 
     ngDoCheck(): void {
-        console.log('FruitsListComponent');
+        console.log('FruitsListComponent-DoCheck');
     }
 }

@@ -11,6 +11,6 @@ export class UserChildComponent implements DoCheck {
     constructor() {}
 
     ngDoCheck(): void {
-        console.log('UserChild-DoCheck');
+        console.log('UserChildComponent-DoCheck');
     }
 }

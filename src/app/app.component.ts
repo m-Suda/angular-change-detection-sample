@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck } from '@angular/core';
 import { Store } from './modules/store-list/store-list.component';
 import { Fruits } from './modules/fruits-list/fruits-list.component';
 
@@ -6,10 +6,10 @@ import { Fruits } from './modules/fruits-list/fruits-list.component';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    // changeDetection: ChangeDetectionStrategy.Default,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.Default,
 })
-export class AppComponent {
+export class AppComponent implements DoCheck {
     public storeList: Store[] = [
         { name: '渋谷店', isFavorite: true },
         { name: '新宿店', isFavorite: false },
@@ -27,26 +27,47 @@ export class AppComponent {
 
     public title = 'angular-change-detect';
 
+    ngDoCheck(): void {
+        console.log('AppComponent-DoCheck');
+    }
+
+    /**
+     * EventだけでChangeDetectionが走るのかを確認する
+     */
+    public consoleLog() {
+        console.log('AppComponentのconsoleLog()');
+        console.log('event');
+    }
+
+    /**
+     * AppComponentの値だけを変更してChangeDetectionが走るのかを確認する
+     */
     public changeTitle() {
+        console.log('AppComponentのtitleをchange');
         this.title = 'Title updated';
     }
 
+    /**
+     * UserComponentの値を変更する
+     */
     public changeUserName() {
+        console.log('AppComponentからuserNameをchange');
         this.userName = 'Lucy';
     }
 
+    /**
+     * StoreListに要素を追加する
+     */
     public addStore() {
-        // StoreListComponentが`changeDetection: ChangeDetectionStrategy.OnPush`のとき
-        // 要素の追加は行われない。何故なら配列(オブジェクト)の参照が変わっていないから。
+        console.log('AppComponentからStoreListに追加');
         this.storeList.push({ name: '飯田橋店', isFavorite: false });
     }
 
+    /**
+     * StoreListのコピーを作成、それに要素を追加して新しい配列を格納する
+     */
     public addStoreNewArray() {
-        // StoreListComponentが`changeDetection: ChangeDetectionStrategy.OnPush`でも
-        // 要素の追加が行われる。何故なら配列(オブジェクト)の参照が変わっているから。
-        // StoreList, FruitsList両方にChangeDetectionStrategy.OnPushが設定されている場合、
-        // StoreListComponent以下のみにChangeDetectionが伝播する。
-        // FruitsListComponent以下にChangeDetectionは走らない。
+        console.log('AppComponentから新しいStoreList配列を格納');
         const currentStoreList = [...this.storeList];
         this.storeList = [...currentStoreList, { name: '飯田橋店', isFavorite: false }];
     }
